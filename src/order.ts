@@ -4,7 +4,7 @@ import { IConfig, IQueryObject } from "./types";
 const defineOrder = (
   config: IConfig,
   queryObject: IQueryObject,
-  allowedKeys: string[]
+  allowedKeys: string[] | null
 ) => {
   const orderResult = [];
   const mappedQueryStrings = !config.case_sensitive
@@ -39,4 +39,4 @@ const defineOrder = (
   return orderResult;
 };
 
-module.exports = defineOrder;
+export default defineOrder;

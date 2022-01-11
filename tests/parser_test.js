@@ -1,7 +1,7 @@
 "use strict";
 
 const chai = require("chai");
-const restParser = require("../src");
+const restParser = require("../dist").default;
 const expect = chai.expect;
 
 const parser = restParser();
@@ -11,7 +11,7 @@ describe("Parser Filter", () => {
     const queryString = {
       name__eq: "aditya",
       age__between: "20,30",
-      password__eq: "12345"
+      password__eq: "12345",
     };
 
     const result = parser.parse(queryString, ["name", "age"]);
@@ -28,7 +28,7 @@ describe("Parser Filter", () => {
   it("Should not be able to parse unallowed keys", () => {
     const queryString = {
       name__eq: "aditya",
-      password__eq: "12345"
+      password__eq: "12345",
     };
 
     const result = parser.parse(queryString, ["name"]);
@@ -43,7 +43,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __eq", () => {
     const queryString = {
-      name__eq: "aditya"
+      name__eq: "aditya",
     };
 
     const result = parser.parse(queryString);
@@ -60,7 +60,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __ne", () => {
     const queryString = {
-      name__ne: "aditya"
+      name__ne: "aditya",
     };
 
     const result = parser.parse(queryString);
@@ -77,7 +77,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __lt", () => {
     const queryString = {
-      age__lt: 30
+      age__lt: 30,
     };
 
     const result = parser.parse(queryString);
@@ -94,7 +94,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __gt", () => {
     const queryString = {
-      age__gt: 20
+      age__gt: 20,
     };
 
     const result = parser.parse(queryString);
@@ -111,7 +111,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __lte", () => {
     const queryString = {
-      age__lte: 25
+      age__lte: 25,
     };
 
     const result = parser.parse(queryString);
@@ -128,7 +128,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __gte", () => {
     const queryString = {
-      age__gte: 25
+      age__gte: 25,
     };
 
     const result = parser.parse(queryString);
@@ -145,7 +145,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __not", () => {
     const queryString = {
-      shutdown__not: true
+      shutdown__not: true,
     };
 
     const result = parser.parse(queryString);
@@ -162,7 +162,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __in", () => {
     const queryString = {
-      fruits__in: "grape,apple,orange"
+      fruits__in: "grape,apple,orange",
     };
 
     const result = parser.parse(queryString);
@@ -183,7 +183,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __notIn", () => {
     const queryString = {
-      fruits__notIn: "grape,apple,orange"
+      fruits__notIn: "grape,apple,orange",
     };
 
     const result = parser.parse(queryString);
@@ -204,7 +204,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __contains", () => {
     const queryString = {
-      fruits__contains: "grape,apple,orange"
+      fruits__contains: "grape,apple,orange",
     };
 
     const result = parser.parse(queryString);
@@ -225,7 +225,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __like", () => {
     const queryString = {
-      name__like: "john%"
+      name__like: "john%",
     };
 
     const result = parser.parse(queryString);
@@ -242,7 +242,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __ilike", () => {
     const queryString = {
-      name__iLike: "john%"
+      name__iLike: "john%",
     };
 
     const result = parser.parse(queryString);
@@ -259,7 +259,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __notLike", () => {
     const queryString = {
-      name__notLike: "john%"
+      name__notLike: "john%",
     };
 
     const result = parser.parse(queryString);
@@ -276,7 +276,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __notILike", () => {
     const queryString = {
-      name__notILike: "john%"
+      name__notILike: "john%",
     };
 
     const result = parser.parse(queryString);
@@ -293,7 +293,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __between", () => {
     const queryString = {
-      date__between: "18-06-1991,31-05-1992"
+      date__between: "18-06-1991,31-05-1992",
     };
 
     const result = parser.parse(queryString);
@@ -315,7 +315,7 @@ describe("Parser Filter", () => {
 
   it("Should be able to parse with filter __notBetween", () => {
     const queryString = {
-      date__notBetween: "18-06-1991,31-05-1992"
+      date__notBetween: "18-06-1991,31-05-1992",
     };
 
     const result = parser.parse(queryString);
@@ -344,7 +344,7 @@ describe("Parser Filter", () => {
       name__notlike: "james",
       name__notilike: "james",
       date__notbetween: "18-06-1991,31-05-1992",
-      age__notin: "25,30"
+      age__notin: "25,30",
     };
 
     const resultSensitive = parserCaseSensitive.parse(queryString);
@@ -368,14 +368,14 @@ describe("Parser Filter", () => {
       first_name__eq: "aditya",
       the_middle_name__eq: "kresna",
       last_name__eq: "permana",
-      age__between: "26,30"
+      age__between: "26,30",
     };
 
     const result = parser.parse(queryString, [
       "first_name",
       "the_middle_name",
       "last_name",
-      "age"
+      "age",
     ]);
 
     const filterResult = result.filter;

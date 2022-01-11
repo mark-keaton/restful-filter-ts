@@ -6,7 +6,7 @@ import { IConfig, IFilterObject, IQueryObject } from "./types";
 const filtering = (
   config: IConfig,
   queryObject: IQueryObject,
-  allowedKeys: string[]
+  allowedKeys: string[] | null
 ) => {
   const filtered: IFilterObject[] = [];
   _.entries(queryObject).forEach(([key, value]) => {

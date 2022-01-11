@@ -1,7 +1,7 @@
 "use strict";
 
 const chai = require("chai");
-const restParser = require("../src");
+const restParser = require("../dist").default;
 const expect = chai.expect;
 
 const parser = restParser();
@@ -9,7 +9,7 @@ const parser = restParser();
 describe("Parser Order", () => {
   it("Should be able to detect order asc", () => {
     const orderParam = {
-      order_by: "name"
+      order_by: "name",
     };
 
     const resultOrder = parser.parse(orderParam).order;
@@ -18,7 +18,7 @@ describe("Parser Order", () => {
   });
   it("Should be able to detect order desc", () => {
     const orderParam = {
-      order_by: "-name"
+      order_by: "-name",
     };
 
     const resultOrder = parser.parse(orderParam).order;
@@ -27,26 +27,26 @@ describe("Parser Order", () => {
   });
   it("Should be able to detect order multiple columns", () => {
     const orderParam = {
-      order_by: "-id,name"
+      order_by: "-id,name",
     };
 
     const resultOrder = parser.parse(orderParam).order;
     expect(resultOrder).to.be.an("array");
     expect(resultOrder).to.have.deep.ordered.members([
       ["id", "DESC"],
-      ["name", "ASC"]
+      ["name", "ASC"],
     ]);
   });
   it("Should be able to detect order multiple columns with space between", () => {
     const orderParam = {
-      order_by: "-id, name"
+      order_by: "-id, name",
     };
 
     const resultOrder = parser.parse(orderParam).order;
     expect(resultOrder).to.be.an("array");
     expect(resultOrder).to.have.deep.ordered.members([
       ["id", "DESC"],
-      ["name", "ASC"]
+      ["name", "ASC"],
     ]);
   });
   it("Should be able to detect order with case sensitive & case insensitive", () => {
@@ -54,7 +54,7 @@ describe("Parser Order", () => {
     const parserInsensitive = restParser();
 
     const orderParam = {
-      ORDER_BY: "-id, name"
+      ORDER_BY: "-id, name",
     };
 
     const resultOrderSensitive = parserSensitive.parse(orderParam).order;
@@ -63,7 +63,7 @@ describe("Parser Order", () => {
     expect(resultOrderInsensitive).to.be.an("array").that.is.not.empty;
     expect(resultOrderInsensitive).to.have.deep.ordered.members([
       ["id", "DESC"],
-      ["name", "ASC"]
+      ["name", "ASC"],
     ]);
   });
   it("Should be able to detect order column with case sensitive & case insensitive", () => {
@@ -72,7 +72,7 @@ describe("Parser Order", () => {
 
     const allowedColumns = ["id", "name"];
     const orderParam = {
-      order_by: "-ID, Name"
+      order_by: "-ID, Name",
     };
 
     const resultOrderSensitive = parserSensitive.parse(
@@ -87,7 +87,7 @@ describe("Parser Order", () => {
     expect(resultOrderInsensitive).to.be.an("array").that.is.not.empty;
     expect(resultOrderInsensitive).to.have.deep.ordered.members([
       ["id", "DESC"],
-      ["name", "ASC"]
+      ["name", "ASC"],
     ]);
   });
 });

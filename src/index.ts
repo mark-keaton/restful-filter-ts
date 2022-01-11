@@ -1,19 +1,23 @@
 import _ from "lodash";
 import { IConfig, IQueryObject } from "./types";
 
+import getFilter from "./filter";
+import getPaginate from "./paginate";
+import getOrder from "./order";
+
 const parse = (
   config: IConfig,
   queryObject: IQueryObject,
   allowedKeys: string[] | null = null
 ) => {
   return {
-    filter: require("./filter")(config, queryObject, allowedKeys),
-    paginate: require("./paginate")(config, queryObject),
-    order: require("./order")(config, queryObject, allowedKeys),
+    filter: getFilter(config, queryObject, allowedKeys),
+    paginate: getPaginate(config, queryObject),
+    order: getOrder(config, queryObject, allowedKeys),
   };
 };
 
-module.exports = (config = {}) => {
+const init = (config = {}) => {
   const defaultConfig = {
     // All parser setting
     case_sensitive: false,
@@ -32,3 +36,5 @@ module.exports = (config = {}) => {
     parse: _.curry(parse)(compiledConfig),
   };
 };
+
+export default init;

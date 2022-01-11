@@ -1,7 +1,7 @@
 "use strict";
 
 const chai = require("chai");
-const restParser = require("../src");
+const restParser = require("../dist").default;
 const expect = chai.expect;
 
 const parser = restParser();
@@ -11,19 +11,19 @@ describe("Parser Pagination", () => {
     expect(
       parser.parse({
         page: 1,
-        count: 40
+        count: 40,
       }).paginate
     ).to.deep.equal({ offset: 0, limit: 40 });
     expect(
       parser.parse({
         page: 1,
-        count: 20
+        count: 20,
       }).paginate
     ).to.deep.equal({ offset: 0, limit: 20 });
     expect(
       parser.parse({
         page: 1,
-        count: 30
+        count: 30,
       }).paginate
     ).to.deep.equal({ offset: 0, limit: 30 });
   });
@@ -34,19 +34,19 @@ describe("Parser Pagination", () => {
     expect(
       parser.parse({
         page: 2,
-        count: 20
+        count: 20,
       }).paginate
     ).to.deep.equal({ offset: 20, limit: 20 });
     expect(
       parser.parse({
         page: 5,
-        count: 10
+        count: 10,
       }).paginate
     ).to.deep.equal({ offset: 40, limit: 10 });
     expect(
       parser.parse({
         page: 3,
-        count: 30
+        count: 30,
       }).paginate
     ).to.deep.equal({ offset: 60, limit: 30 });
   });
@@ -57,19 +57,19 @@ describe("Parser Pagination", () => {
     expect(
       parserSensitive.parse({
         page: 2,
-        count: 20
+        count: 20,
       }).paginate
     ).to.deep.equal({ offset: 20, limit: 20 });
     expect(
       parserInsensitive.parse({
         Page: 5,
-        Count: 10
+        Count: 10,
       }).paginate
     ).to.deep.equal({ offset: 40, limit: 10 });
     expect(
       parserInsensitive.parse({
         PaGE: 3,
-        cOUnt: 30
+        cOUnt: 30,
       }).paginate
     ).to.deep.equal({ offset: 60, limit: 30 });
   });
@@ -78,7 +78,7 @@ describe("Parser Pagination", () => {
     expect(
       parserMax.parse({
         page: 1,
-        count: 1000
+        count: 1000,
       }).paginate
     ).to.deep.equal({ offset: 0, limit: 1000 });
   });
@@ -86,20 +86,20 @@ describe("Parser Pagination", () => {
     const parserDiffParams = restParser({
       case_sensitive: false,
       page_param_name: "section",
-      limit_param_name: "total"
+      limit_param_name: "total",
     });
 
     expect(
       parserDiffParams.parse({
         section: 1,
-        total: 15
+        total: 15,
       }).paginate
     ).to.deep.equal({ offset: 0, limit: 15 });
 
     expect(
       parserDiffParams.parse({
         Section: 2,
-        Total: 45
+        Total: 45,
       }).paginate
     ).to.deep.equal({ offset: 45, limit: 45 });
   });

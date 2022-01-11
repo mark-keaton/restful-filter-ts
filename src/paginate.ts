@@ -36,3 +36,5 @@ export const paginate = (
     offset: parseInt(offsetNumber as unknown as string),
   };
 };
+
+export default paginate;
