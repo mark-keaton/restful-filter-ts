@@ -1,19 +1,19 @@
 import equals from "./filters/equals";
 import negate from "./filters/negate";
-import lessthanequals from "./filters/lessthanequals";
-import greaterthanequals from "./filters/greaterthanequals";
-import lessthan from "./filters/lessthan";
-import greaterthan from "./filters/greaterthan";
+import lessThanEquals from "./filters/lessThanEquals";
+import greaterThanEquals from "./filters/greaterThanEquals";
+import lessThan from "./filters/lessThan";
+import greaterThan from "./filters/greaterThan";
 import not_ from "./filters/not";
 import in_ from "./filters/in";
-import notin from "./filters/notin";
+import notIn from "./filters/notIn";
 import like from "./filters/like";
-import ilike from "./filters/ilike";
-import notlike from "./filters/notlike";
-import notilike from "./filters/notilike";
+import iLike from "./filters/iLike";
+import notLike from "./filters/notLike";
+import notILike from "./filters/notILike";
 import contains from "./filters/contains";
 import between from "./filters/between";
-import notbetween from "./filters/notbetween";
+import notBetween from "./filters/notBetween";
 
 export const OPERATORS = {
   __eq: {
@@ -23,16 +23,16 @@ export const OPERATORS = {
     parser: negate,
   },
   __lte: {
-    parser: lessthanequals,
+    parser: lessThanEquals,
   },
   __gte: {
-    parser: greaterthanequals,
+    parser: greaterThanEquals,
   },
   __lt: {
-    parser: lessthan,
+    parser: lessThan,
   },
   __gt: {
-    parser: greaterthan,
+    parser: greaterThan,
   },
   __not: {
     parser: not_,
@@ -41,19 +41,19 @@ export const OPERATORS = {
     parser: in_,
   },
   __notIn: {
-    parser: notin,
+    parser: notIn,
   },
   __like: {
     parser: like,
   },
   __iLike: {
-    parser: ilike,
+    parser: iLike,
   },
   __notLike: {
-    parser: notlike,
+    parser: notLike,
   },
   __notILike: {
-    parser: notilike,
+    parser: notILike,
   },
   __contains: {
     parser: contains,
@@ -62,6 +62,6 @@ export const OPERATORS = {
     parser: between,
   },
   __notBetween: {
-    parser: notbetween,
+    parser: notBetween,
   },
 };
