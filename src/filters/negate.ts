@@ -1,10 +1,12 @@
-'use strict'
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const negate = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$ne',
-    operatorSQL: '!=',
+    operator: "$ne",
+    operatorSQL: "!=",
     column,
-    value
-  }
-}
+    value,
+  };
+};
+
+export default negate;

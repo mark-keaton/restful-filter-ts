@@ -1,10 +1,12 @@
-'use strict';
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const notin = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$notIn',
-    operatorSQL: 'NOT IN',
+    operator: "$notIn",
+    operatorSQL: "NOT IN",
     column,
-    value: value.replace(/ /g, '').split(','),
+    value: (value as string).replace(/ /g, "").split(","),
   };
 };
+
+export default notin;

@@ -1,10 +1,12 @@
-'use strict';
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const in_ = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$in',
-    operatorSQL: 'IN',
+    operator: "$in",
+    operatorSQL: "IN",
     column,
-    value: value.replace(/ /g, '').split(','),
+    value: (value as string).replace(/ /g, "").split(","),
   };
 };
+
+export default in_;

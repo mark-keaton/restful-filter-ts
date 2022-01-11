@@ -1,10 +1,12 @@
-'use strict'
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const lessthanequals = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$lte',
-    operatorSQL: '<=',
+    operator: "$lte",
+    operatorSQL: "<=",
     column,
-    value
-  }
-}
+    value,
+  };
+};
+
+export default lessthanequals;

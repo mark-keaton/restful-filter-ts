@@ -1,10 +1,12 @@
-'use strict';
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const contains = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$contains',
-    operatorSQL: '@>',
+    operator: "$contains",
+    operatorSQL: "@>",
     column,
-    value: value.replace(/ /g, '').split(','),
+    value: (value as string).replace(/ /g, "").split(","),
   };
 };
+
+export default contains;

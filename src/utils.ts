@@ -1,8 +1,6 @@
-'use strict';
+import _ from "lodash";
 
-const _ = require('lodash');
-
-const lowercasedQuerystring = queryString => {
+export const lowercasedQuerystring = (queryString: { [key: string]: any }) => {
   const mappedQueryStrings = Object.assign({}, queryString);
   _.entries(queryString).forEach(([key, value]) => {
     // remove old key
@@ -12,11 +10,6 @@ const lowercasedQuerystring = queryString => {
   return mappedQueryStrings;
 };
 
-const cleanWhitespaces = stringValue => {
-  return stringValue.replace(/ /g, '');
-};
-
-module.exports = {
-  lowercasedQuerystring,
-  cleanWhitespaces,
+export const cleanWhitespaces = (stringValue: string) => {
+  return stringValue.replace(/ /g, "");
 };

@@ -1,10 +1,12 @@
-'use strict'
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const greaterthan = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$gt',
-    operatorSQL: '>',
+    operator: "$gt",
+    operatorSQL: ">",
     column,
-    value
-  }
-}
+    value,
+  };
+};
+
+export default greaterthan;

@@ -1,10 +1,12 @@
-'use strict'
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const notilike = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$notILike',
-    operatorSQL: 'NOT ILIKE',
+    operator: "$notILike",
+    operatorSQL: "NOT ILIKE",
     column,
-    value
-  }
-}
+    value,
+  };
+};
+
+export default notilike;

@@ -1,12 +1,15 @@
-"use strict";
+import * as utils from "./utils";
+import { IConfig, IQueryObject } from "./types";
 
-const utils = require("./utils");
-
-const defineOrder = (config, queryString, allowedKeys) => {
+const defineOrder = (
+  config: IConfig,
+  queryObject: IQueryObject,
+  allowedKeys: string[]
+) => {
   const orderResult = [];
   const mappedQueryStrings = !config.case_sensitive
-    ? utils.lowercasedQuerystring(queryString)
-    : queryString;
+    ? utils.lowercasedQuerystring(queryObject)
+    : queryObject;
 
   const orderName = !config.case_sensitive
     ? config.order_param_name.toLowerCase()

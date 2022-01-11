@@ -1,10 +1,12 @@
-'use strict';
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const between = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$between',
-    operatorSQL: ['BETWEEN', 'AND'],
+    operator: "$between",
+    operatorSQL: ["BETWEEN", "AND"],
     column,
-    value: value.replace(/ /g, '').split(','),
+    value: (value as string).replace(/ /g, "").split(","),
   };
 };
+
+export default between;

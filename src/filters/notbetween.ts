@@ -1,10 +1,12 @@
-'use strict';
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const notbetween = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$notBetween',
-    operatorSQL: ['NOT BETWEEN', 'AND'],
+    operator: "$notBetween",
+    operatorSQL: ["NOT BETWEEN", "AND"],
     column,
-    value: value.replace(/ /g, '').split(','),
+    value: (value as string).replace(/ /g, "").split(","),
   };
 };
+
+export default notbetween;

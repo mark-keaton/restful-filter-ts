@@ -1,10 +1,12 @@
-'use strict'
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const equals = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$eq', 
-    operatorSQL: '=',
+    operator: "$eq",
+    operatorSQL: "=",
     column,
-    value
-  }
-}
+    value,
+  };
+};
+
+export default equals;

@@ -1,10 +1,12 @@
-'use strict'
+import { FilterValue, IFilterObject } from "../types";
 
-module.exports = (column, value) => {
+const like = (column: string, value: FilterValue): IFilterObject => {
   return {
-    operator: '$like',
-    operatorSQL: 'LIKE',
+    operator: "$like",
+    operatorSQL: "LIKE",
     column,
-    value
-  }
-}
+    value,
+  };
+};
+
+export default like;
