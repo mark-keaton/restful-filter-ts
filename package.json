@@ -11,9 +11,10 @@
     "querystring",
     "filter",
     "api",
-    "search"
+    "search",
+    "typescript"
   ],
-  "author": "Aditya Kresna Permana",
+  "author": "Mark Keaton",
   "license": "MIT",
   "devDependencies": {
     "@types/lodash": "^4.14.178",
