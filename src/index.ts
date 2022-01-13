@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { IConfig, IQueryObject } from "./types";
+import { IConfig, IConfiguredParse, IQueryObject } from "./types.d";
 
 import getFilter from "./filter";
 import getPaginate from "./paginate";
@@ -17,7 +17,7 @@ const parse = (
   };
 };
 
-const init = (config = {}) => {
+const init = (config: Partial<IConfig> = {}): IConfiguredParse => {
   const defaultConfig = {
     // All parser setting
     case_sensitive: false,
@@ -34,7 +34,7 @@ const init = (config = {}) => {
 
   return {
     parse: _.curry(parse)(compiledConfig),
-  };
+  } as unknown as IConfiguredParse;
 };
 
 export default init;

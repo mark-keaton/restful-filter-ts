@@ -1,7 +1,7 @@
 # Restful filter
 
 This library aim to convert querystring parameters into parsed json with related operators, 
-so you would able to use the parsed values into another query action like filtering by using your model on SQL library (knex, sequelize, etc).
+so you would able to use the parsed values into another query action like filtering by using your model on SQL library (knex, sequelize, etc). Now with TypeScript!
 
 # Features
  - Filter querystring parameters
@@ -11,10 +11,10 @@ so you would able to use the parsed values into another query action like filter
 ## Installation
 
     # via npm
-    npm i restful-filter --save
+    npm i restful-filter-ts
 
     # via yarn
-    yarn add rest
+    yarn add restful-filter-ts
 
 ## Usage
 

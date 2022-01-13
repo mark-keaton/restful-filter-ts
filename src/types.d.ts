@@ -1,3 +1,14 @@
+/**
+Configuration parameters for the parser.
+
+Defaults:
+case_sensitive: false
+page_param_name: "page"
+limit_param_name: "count",
+per_page: 20
+max_count_per_page: 100
+order_param_name: "order_by"
+*/
 export interface IConfig {
   case_sensitive: boolean;
   limit_param_name: string;
@@ -7,6 +18,9 @@ export interface IConfig {
   per_page: number;
 }
 
+/**
+Possible types allowed  for the filter values
+*/
 export type FilterValue =
   | string
   | number
@@ -15,6 +29,9 @@ export type FilterValue =
   | number[]
   | boolean[];
 
+/**
+The parsed filter query object for consumption by library
+*/
 export interface IFilterObject {
   operator: string;
   operatorSQL: string | string[];
@@ -22,11 +39,33 @@ export interface IFilterObject {
   value: FilterValue;
 }
 
+/**
+Offset and limit arguments for pagination
+*/
 export interface IPaginationObject {
   offset: number;
   limit: number;
 }
 
+/**
+Querystring arguments parsed into an object.
+*/
 export interface IQueryObject {
   [key: string]: any;
+}
+
+/**
+Curried Parse function with config in closure 
+*/
+export interface IConfiguredParse {
+  parse: (
+    queryObject: IQueryObject,
+    allowedKeys?: string[] | null
+  ) => IParsedQueryObject;
+}
+
+export interface IParsedQueryObject {
+  filter: IFilterObject[];
+  order: string[];
+  pagination: IPaginationObject;
 }
