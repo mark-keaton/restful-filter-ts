@@ -1,4 +1,5 @@
 import _ from "lodash";
+
 import { IConfig, IConfiguredParse, IQueryObject } from "./types.d";
 
 import getFilter from "./filter";
@@ -38,3 +39,4 @@ const init = (config: Partial<IConfig> = {}): IConfiguredParse => {
 };
 
 export default init;
+export { OPERATORS } from "./operators";

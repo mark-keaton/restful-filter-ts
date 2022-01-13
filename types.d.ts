@@ -56,6 +56,56 @@ export interface IParsedQueryObject {
 	order: string[];
 	pagination: IPaginationObject;
 }
+export declare const OPERATORS: {
+	__eq: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__ne: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__lte: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__gte: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__lt: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__gt: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__not: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__in: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__notIn: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__like: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__iLike: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__notLike: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__notILike: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__contains: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__between: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+	__notBetween: {
+		parser: (column: string, value: FilterValue) => IFilterObject;
+	};
+};
 declare const init: (config?: Partial<IConfig>) => IConfiguredParse;
 export default init;
 
