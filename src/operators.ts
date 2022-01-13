@@ -40,19 +40,19 @@ export const OPERATORS = {
   __in: {
     parser: in_,
   },
-  __notIn: {
+  __notin: {
     parser: notIn,
   },
   __like: {
     parser: like,
   },
-  __iLike: {
+  __ilike: {
     parser: iLike,
   },
-  __notLike: {
+  __notlike: {
     parser: notLike,
   },
-  __notILike: {
+  __notilike: {
     parser: notILike,
   },
   __contains: {
@@ -61,7 +61,7 @@ export const OPERATORS = {
   __between: {
     parser: between,
   },
-  __notBetween: {
+  __notbetween: {
     parser: notBetween,
   },
 };
