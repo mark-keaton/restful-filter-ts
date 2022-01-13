@@ -81,19 +81,19 @@ export declare const OPERATORS: {
 	__in: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
-	__notIn: {
+	__notin: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
 	__like: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
-	__iLike: {
+	__ilike: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
-	__notLike: {
+	__notlike: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
-	__notILike: {
+	__notilike: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
 	__contains: {
@@ -102,7 +102,7 @@ export declare const OPERATORS: {
 	__between: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
-	__notBetween: {
+	__notbetween: {
 		parser: (column: string, value: FilterValue) => IFilterObject;
 	};
 };
