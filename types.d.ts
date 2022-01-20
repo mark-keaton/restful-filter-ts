@@ -54,7 +54,7 @@ export interface IConfiguredParse {
 export interface IParsedQueryObject {
 	filter: IFilterObject[];
 	order: string[];
-	pagination: IPaginationObject;
+	paginate: IPaginationObject;
 }
 export declare const OPERATORS: {
 	__eq: {

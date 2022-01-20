@@ -67,5 +67,5 @@ export interface IConfiguredParse {
 export interface IParsedQueryObject {
   filter: IFilterObject[];
   order: string[];
-  pagination: IPaginationObject;
+  paginate: IPaginationObject;
 }
