@@ -64,8 +64,12 @@ export interface IConfiguredParse {
   ) => IParsedQueryObject;
 }
 
+type Column = string;
+type Order = "ASC" | "DESC";
+export type ParsedOrderBy = [Column, Order];
+
 export interface IParsedQueryObject {
   filter: IFilterObject[];
-  order: string[];
+  order: ParsedOrderBy[];
   paginate: IPaginationObject;
 }

@@ -51,9 +51,15 @@ Curried Parse function with config in closure
 export interface IConfiguredParse {
 	parse: (queryObject: IQueryObject, allowedKeys?: string[] | null) => IParsedQueryObject;
 }
+export type Column = string;
+export type Order = "ASC" | "DESC";
+export type ParsedOrderBy = [
+	Column,
+	Order
+];
 export interface IParsedQueryObject {
 	filter: IFilterObject[];
-	order: string[];
+	order: ParsedOrderBy[];
 	paginate: IPaginationObject;
 }
 export declare const OPERATORS: {
